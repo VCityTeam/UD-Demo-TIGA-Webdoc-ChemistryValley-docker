@@ -14,7 +14,7 @@ no cache options :
 docker build --no-cache -t vcity:webdoc .
 ```
 
-If you want specify a branch name or commit name for UD-Demo-Anthropocene-GratteCiel use this
+If you want specify a branch name or commit name for UD-Demo-TIGA-Webdoc-ChemistryValley use this
 
 ```bash
 docker build -t vcity:webdoc --build-arg checkoutName=name .
