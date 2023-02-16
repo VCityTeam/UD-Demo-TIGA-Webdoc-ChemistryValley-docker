@@ -5,12 +5,16 @@ branches:
 
 os: linux
 dist: focal
-language: node_js
-node_js:
-  - 14
+language: generic
+services:
+  - docker
 
 jobs:
   include:
-    - stage: DemoFull
+    - stage: Building and running the container
       script:
-        - npm install && npm run travis
+        - docker build -t vcity:webdoc .
+        - docker run --rm --detach -t vcity:webdoc
+        - travis_wait 2
+        - docker stop $(docker ps -a -q --filter ancestor=vcity:imuv --format="{{.ID}}")
+
