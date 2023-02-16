@@ -16,5 +16,5 @@ jobs:
         - docker build -t vcity:webdoc .
         - docker run --rm --detach -t vcity:webdoc
         - travis_wait 2
-        - docker stop $(docker ps -a -q --filter ancestor=vcity:imuv --format="{{.ID}}")
+        - docker stop $(docker ps -a -q --filter ancestor=vcity:webdoc --format="{{.ID}}")
 
